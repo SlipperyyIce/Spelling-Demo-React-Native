@@ -134,7 +134,7 @@ export const DifficultyModal = forwardRef(({ routeOrigin,}, ref) => {
                     style={[styles.difButton, { backgroundColor: primary }]}
                   >
                     <Text fontWeight={'bold'} fontSize={18} style={{color: black}}>Easy</Text>
-                    {dataStore?.highscores?.[scoreType+ 'easy'] && <Text  fontSize={14} style={{color: black}}>Highscore: {dataStore?.highscores?.[scoreType+ 'easy']}</Text>}
+                    {dataStore?.highscores?.[scoreType+ 'easy']?.toString() && <Text  fontSize={14} style={{color: black}}>Highscore: {dataStore?.highscores?.[scoreType+ 'easy']?.toString()}</Text>}
                   </Button>
                   <Button
                     onPress={() => {
@@ -143,7 +143,7 @@ export const DifficultyModal = forwardRef(({ routeOrigin,}, ref) => {
                     style={[styles.difButton, { backgroundColor: primary }]}
                   >
                     <Text fontWeight={'bold'} fontSize={18} style={{color: black}}>Medium</Text>
-                    {dataStore?.highscores?.[scoreType+ 'medium'] && <Text  fontSize={14} style={{color: black}}>Highscore: {dataStore?.highscores?.[scoreType+ 'medium']}</Text>}
+                    {dataStore?.highscores?.[scoreType+ 'medium']?.toString() && <Text  fontSize={14} style={{color: black}}>Highscore: {dataStore?.highscores?.[scoreType+ 'medium']?.toString()}</Text>}
                   </Button>
                   <Button
                     onPress={() => {
@@ -152,7 +152,7 @@ export const DifficultyModal = forwardRef(({ routeOrigin,}, ref) => {
                     style={[styles.difButton, { backgroundColor: primary }]}
                   >
                     <Text fontWeight={'bold'} fontSize={18} style={{color: black}}>Hard</Text>
-                    {dataStore?.highscores?.[scoreType+ 'hard'] && <Text  fontSize={14} style={{color: black}}>Highscore: {dataStore?.highscores?.[scoreType+ 'easy']}</Text>}
+                    {dataStore?.highscores?.[scoreType+ 'hard']?.toString() && <Text  fontSize={14} style={{color: black}}>Highscore: {dataStore?.highscores?.[scoreType+ 'hard']?.toString()}</Text>}
                   </Button>
               </View>
             </View>
