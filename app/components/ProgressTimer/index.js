@@ -84,8 +84,8 @@ export const ProgressTimer = forwardRef(({ onComplete, initialSeconds = 10, styl
   return (
     <View style={[styles.container, style]}>
       <View style={styles.timeContainer}>
-        <Text style={[styles.timeText, { color: text, fontWeight: 'bold' }]}>Timer</Text>
-        <Text style={[styles.timeText, { color: text }]}>{seconds}s</Text>
+        <Text style={[styles.timeText, { color: text, textAlign:'left' }]}>Timer</Text>
+        <Text style={[styles.timeText, { color: text, textAlign:'right' }]}>{seconds}s</Text>
       </View>
       <Progress.Bar
         progress={progress}
@@ -103,9 +103,11 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     padding: 20,
-    paddingHorizontal: 30,
+    paddingHorizontal: 15,
+    alignItems:'center'
   },
   timeContainer: {
+    width: '100%',
     justifyContent: 'space-between',
     alignItems: 'space-between',
     flexDirection: 'row',
