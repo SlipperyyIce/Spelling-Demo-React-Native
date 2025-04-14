@@ -1,29 +1,42 @@
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, StatusBar, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
 import { AppNavigation } from './navigation/app';
 import { useFonts, Chewy_400Regular } from "@expo-google-fonts/chewy";
 import { useStores } from './stores';
+import { observer } from 'mobx-react';
 
 
-export default function App() {
-  let [fontsLoaded] = useFonts({
+const App = observer(() => {
+  let [fontsLoaded, error] = useFonts({
     Chewy_400Regular,
   });
-  const {colorStore} = useStores()
-  
+
+  const { colorStore } = useStores();
+  const { background } = colorStore.colors;
+  const { theme } = colorStore;
+
+
   if (!fontsLoaded) {
-    return <ActivityIndicator size="large" color="#0000ff" />;
+    return null;
   }
 
   return (
     <SafeAreaProvider>
-        <NavigationContainer>
-          <AppNavigation/>
-        </NavigationContainer>
+      <StatusBar
+        animated={true}
+        backgroundColor={background}
+        hidden={false}
+        barStyle={theme =='light' ? 'dark-content' : 'light-content'}
+      />
+      <NavigationContainer>
+        <AppNavigation />
+      </NavigationContainer>
     </SafeAreaProvider>
   );
-}
+});
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {

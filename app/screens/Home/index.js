@@ -1,4 +1,4 @@
-import { Button, Text, ScreenView, RoundedContainer, SunMoonSwitch, ProfileIcon, DifficultyModal, AnimatedButton } from "../../components"
+import { Button, Text, ScreenView, RoundedContainer, SunMoonSwitch, ProfileIcon, DifficultyModal, AnimatedButton, BottomSheetComp } from "../../components"
 import { cheetah1, snailTime, wormBook } from '../../assets';
 import { StyleSheet, Image, View, TouchableOpacity, ScrollView, Animated, Alert } from "react-native";
 import { useStores } from '../../stores';
@@ -40,7 +40,7 @@ export const Home = observer(({ navigation }) => {
 
     return (
         <ScreenView style={{ padding: 0 }}>
-            <DifficultyModal ref={difficultyRef}/>
+            <BottomSheetComp ref={difficultyRef} navigation={navigation}/>
             <ScrollView
                 style={{ width: '100%', borderRadius: 20 }}
 
@@ -54,7 +54,7 @@ export const Home = observer(({ navigation }) => {
                     <AnimatedButton
                         onPress={() => loadPage(routeUrls.dailyWord)}
                     >
-                        <Text fontWeight={700} style={{ fontSize: 30 }}>Daily Word</Text>
+                        <Text  style={{ fontSize: 30 }}>Daily Word</Text>
                         <Text color={textDimmed} style={{ fontFamily: 'Arial', fontSize: 15, flexWrap: 'wrap', marginRight: 100 }}>
                             Attempt to spell a new word each day to get the highest score.
                         </Text>
@@ -87,7 +87,7 @@ export const Home = observer(({ navigation }) => {
                     <AnimatedButton
                         onPress={() => chooseDifficulty(routeUrls.play, 'time')}
                     >
-                        <Text fontWeight={700} style={{ fontSize: 30 }}>Time Trial</Text>
+                        <Text  style={{ fontSize: 30 }}>Time Trial</Text>
                         <Text color={textDimmed} style={{ fontFamily: 'Arial', fontSize: 15, flexWrap: 'wrap', marginRight: 120 }}>
                             Race against time to get the highest score!
                         </Text>
@@ -105,7 +105,7 @@ export const Home = observer(({ navigation }) => {
                         onPress={() => chooseDifficulty(routeUrls.streaks, 'streaks')}
                         style={{marginBottom: 50}}
                     >
-                        <Text fontWeight={700} style={{ fontSize: 30 }}>Word Sprint</Text>
+                        <Text  style={{ fontSize: 30 }}>Word Sprint</Text>
                         <Text color={textDimmed} style={{ fontFamily: 'Arial', fontSize: 15, flexWrap: 'wrap', marginRight: 100 }}>
                             Race against the clock, spelling words to add time. Slow down, and the countdown {'\n'}runs out!
                         </Text>
