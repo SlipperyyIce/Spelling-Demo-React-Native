@@ -13,7 +13,7 @@ export const ScreenView = ({ children, style, noBg }) => {
   return (
     <BottomSheetModalProvider>
       <SafeAreaView style={[styles.container, { backgroundColor: background }, style]}>
-        {!noBg && <Image source={flowers} style={{height:2000, width:1000, position: 'absolute', resizeMode:"repeat", zIndex: -900, opacity: theme =='light' ? 1: 0}}/>}
+        {!noBg && <Image source={flowers} style={{height:2400, width:1200, position: 'absolute', resizeMode:"cover", opacity: theme =='light' ? 1: 0}}/>}
         {children}
       </SafeAreaView>
     </BottomSheetModalProvider>
