@@ -100,13 +100,11 @@ const GenerateStack = ({ paths }) => {
 
   if (paths) {
     return (
-      <View style={{ flex: 1 }}>
         <Stack.Navigator>
           {paths.map((item, index) => {
             return renderScreen(item, index, true);
           })}
         </Stack.Navigator>
-      </View>
     );
   }
 };
